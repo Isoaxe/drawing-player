@@ -46,24 +46,6 @@ public class Shape {
         this.playLineCoord = playLineCoord;
     }
 
-    // EFFECTS: return true iff the given x value is within the bounds of the Shape
-    public boolean containsX(int x){
-        return (this.x <= x) && (x <= this.x + width);
-    }
-
-    // EFFECTS: return true iff the given y value is within the bounds of the Shape
-    public boolean containsY(int y) {
-        return (this.y <= y) && (y <= this.y + height);
-    }
-
-    // EFFECTS: return true if the given Point (x,y) is contained within the bounds of this Shape
-    public boolean contains(Point point) {
-        int point_x = point.x;
-        int point_y = point.y;
-
-        return containsX(point_x) && containsY(point_y);
-    }
-
     // REQUIRES: the x,y coordinates of the Point are larger than the x,y coordinates of the shape
     // MODIFIES: this
     // EFFECTS:  sets the bottom right corner of this Shape to the given Point
