@@ -9,10 +9,10 @@ import java.awt.*;
 public class Shape {
     private static Color PLAYING_COLOR;
 
-    private int x;
-    private int y;
-    private int width;
-    private int height;
+    protected int x;
+    protected int y;
+    protected int width;
+    protected int height;
 
     private boolean selected;
 
