@@ -21,9 +21,6 @@ public class Rectangle extends Shape {
 
     // EFFECTS: return true if the given Point (x,y) is contained within the bounds of this Shape
     public boolean contains(Point point) {
-        int point_x = point.x;
-        int point_y = point.y;
-
-        return containsX(point_x) && containsY(point_y);
+        return containsX(point.x) && containsY(point.y);
     }
 }
