@@ -6,7 +6,7 @@ import sound.MidiSynth;
 import java.awt.*;
 
 
-public class Shape {
+public abstract class Shape {
     private static Color PLAYING_COLOR;
 
     protected int x;
@@ -29,7 +29,6 @@ public class Shape {
         playLineCoord = 0;
         PLAYING_COLOR = new Color(230, 158, 60);
     }
-
 
     public Shape(int x, int y, int w, int h) {
         this.x = x;
@@ -74,8 +73,6 @@ public class Shape {
         }
     }
 
-
-
     // MODIFIES: this
     // EFFECTS:  adds dx to the shapes x coordinate, and dy to the shapes y coordinate.
     //           If the sound associated with the new y-coordinate is different, play the new sound
@@ -119,7 +116,6 @@ public class Shape {
     private void fillGraphics(Graphics g) {
         g.fillRect(x, y, width, height);
     }
-
 
     // EFFECTS: starts playing this Shape, where sound is dependent on the area/coordinates of the Shape
     private void play(){
