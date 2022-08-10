@@ -1,6 +1,7 @@
 package ui.tools;
 
 
+import model.Rectangle;
 import model.Shape;
 import ui.DrawingEditor;
 
@@ -43,7 +44,6 @@ public class ShapeTool extends Tool {
 		editor.addToDrawing(shape);
 	}
 
-
 	// MODIFIES: this
     // EFFECTS:  unselects this shape, and sets it to null
 	@Override
@@ -66,11 +66,10 @@ public class ShapeTool extends Tool {
 
 	//EFFECTS: Constructs and returns the new shape
 	private void makeShape(MouseEvent e) {
-		shape = new Shape(e.getPoint(), editor.getMidiSynth());
+		shape = new Rectangle(e.getPoint(), editor.getMidiSynth());
 	}
 
 	private class ShapeToolClickHandler implements ActionListener {
-
 		// EFFECTS: sets active tool to the shape tool
 		//          called by the framework when the tool is clicked
     	@Override
