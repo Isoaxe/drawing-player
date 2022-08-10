@@ -7,6 +7,7 @@ import java.awt.*;
 public class Rectangle extends Shape {
     public Rectangle(Point topLeft, MidiSynth midiSynth) {
         super(topLeft, midiSynth);
+        instrument = 33; // bass
         PLAYING_COLOR = new Color(20, 189, 79);
     }
 
