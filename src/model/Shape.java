@@ -38,6 +38,8 @@ public abstract class Shape {
     }
 
     // Abstract methods.
+
+    // EFFECTS: return true if the given Point (x,y) is contained within the bounds of this Shape
     public abstract boolean contains(Point p);
 
     // getters
