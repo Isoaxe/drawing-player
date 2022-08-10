@@ -7,6 +7,7 @@ import java.awt.*;
 public class Rectangle extends Shape {
     public Rectangle(Point topLeft, MidiSynth midiSynth) {
         super(topLeft, midiSynth);
+        PLAYING_COLOR = new Color(230, 158, 60);
     }
 
     // EFFECTS: return true if the given y value is within the bounds of the Shape
