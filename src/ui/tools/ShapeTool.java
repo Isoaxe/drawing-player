@@ -1,6 +1,7 @@
 package ui.tools;
 
 
+import model.Oval;
 import model.Rectangle;
 import model.Shape;
 import ui.DrawingEditor;
@@ -66,7 +67,7 @@ public class ShapeTool extends Tool {
 
 	//EFFECTS: Constructs and returns the new shape
 	private void makeShape(MouseEvent e) {
-		shape = new Rectangle(e.getPoint(), editor.getMidiSynth());
+		shape = new Oval(e.getPoint(), editor.getMidiSynth());
 	}
 
 	private class ShapeToolClickHandler implements ActionListener {
