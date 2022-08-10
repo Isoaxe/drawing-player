@@ -9,7 +9,7 @@ import java.awt.*;
 public abstract class Shape {
     private static Color PLAYING_COLOR;
 
-    protected int x;
+    private int x;
     protected int y;
     protected int width;
     protected int height;
@@ -46,6 +46,11 @@ public abstract class Shape {
     // setters
     public void setPlayLineCoord(int playLineCoord) {
         this.playLineCoord = playLineCoord;
+    }
+
+    // EFFECTS: return true if the given x value is within the bounds of the Shape
+    public boolean containsX(int x){
+        return (this.x <= x) && (x <= this.x + width);
     }
 
     // REQUIRES: the x,y coordinates of the Point are larger than the x,y coordinates of the shape
