@@ -37,6 +37,9 @@ public abstract class Shape {
         height = h;
     }
 
+    // Abstract methods.
+    public abstract boolean contains(Point p);
+
     // getters
     public int getWidth() { return width; }
 
