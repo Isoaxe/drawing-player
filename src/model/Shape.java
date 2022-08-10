@@ -9,7 +9,7 @@ import java.awt.*;
 public abstract class Shape {
     private static Color PLAYING_COLOR;
 
-    private int x;
+    protected int x;
     protected int y;
     protected int width;
     protected int height;
@@ -41,6 +41,12 @@ public abstract class Shape {
 
     // EFFECTS: return true if the given Point (x,y) is contained within the bounds of this Shape
     public abstract boolean contains(Point p);
+
+    // EFFECTS: draws the shape
+    protected abstract void drawGraphics(Graphics g);
+
+    // EFFECTS: fills the shape
+    protected abstract void fillGraphics(Graphics g);
 
     // getters
     public int getWidth() { return width; }
@@ -115,16 +121,6 @@ public abstract class Shape {
             selected = false;
             stopPlaying();
         }
-    }
-
-    //EFFECTS: draws the shape
-    private void drawGraphics(Graphics g) {
-        g.drawRect(x, y, width, height);
-    }
-
-    //EFFECTS: fills the shape
-    private void fillGraphics(Graphics g) {
-        g.fillRect(x, y, width, height);
     }
 
     // EFFECTS: starts playing this Shape, where sound is dependent on the area/coordinates of the Shape
