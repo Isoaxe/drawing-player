@@ -15,6 +15,7 @@ public class Rectangle extends Shape {
     }
 
     // EFFECTS: return true if the given Point (x,y) is contained within the bounds of this Shape
+    @Override
     public boolean contains(Point point) {
         return containsX(point.x) && containsY(point.y);
     }
