@@ -35,4 +35,16 @@ public class Oval extends Shape {
     private double sqrDiff(double num1, double num2) {
         return (num1 - num2) * (num1 - num2);
     }
+
+    // EFFECTS: draws the oval
+    @Override
+    protected void drawGraphics(Graphics g) {
+        g.drawOval(x, y, width, height);
+    }
+
+    // EFFECTS: fills the oval
+    @Override
+    protected void fillGraphics(Graphics g) {
+        g.fillOval(x, y, width, height);
+    }
 }
