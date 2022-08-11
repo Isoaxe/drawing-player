@@ -17,14 +17,6 @@ public class ShapeTool extends Tool {
 	}
 
     // MODIFIES: this
-    // EFFECTS:  creates new button and adds to parent
-	@Override
-	protected void createButton(JComponent parent) {
-		button = new JButton(getLabel());
-		button = customizeButton(button);
-	}
-
-    // MODIFIES: this
     // EFFECTS:  associate button with new ClickHandler
 	@Override
 	protected void addListener() {
