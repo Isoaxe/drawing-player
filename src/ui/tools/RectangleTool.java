@@ -17,7 +17,7 @@ public class RectangleTool extends ShapeTool {
     }
 
     // MODIFIES: this
-    // EFFECTS:  a shape is instantiate MouseEvent occurs, and played and
+    // EFFECTS:  when MouseEvent occurs a shape is instantiated, is played, and
     //           added to the editor's drawing
     @Override
     public void mousePressedInDrawingArea(MouseEvent e) {
