@@ -26,4 +26,9 @@ public class RectangleTool extends ShapeTool {
         shape.setBounds(e.getPoint());
         editor.addToDrawing(shape);
     }
+
+    // EFFECTS: Returns the string for the label.
+    private String getLabel() {
+        return "Rectangle";
+    }
 }
