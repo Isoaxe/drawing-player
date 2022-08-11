@@ -1,8 +1,5 @@
 package ui.tools;
 
-
-import model.Oval;
-import model.Rectangle;
 import model.Shape;
 import ui.DrawingEditor;
 
