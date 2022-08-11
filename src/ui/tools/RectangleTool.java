@@ -15,4 +15,15 @@ public class RectangleTool extends ShapeTool {
     private void makeShape(MouseEvent e) {
         shape = new Rectangle(e.getPoint(), editor.getMidiSynth());
     }
+
+    // MODIFIES: this
+    // EFFECTS:  a shape is instantiate MouseEvent occurs, and played and
+    //           added to the editor's drawing
+    @Override
+    public void mousePressedInDrawingArea(MouseEvent e) {
+        makeShape(e);
+        shape.selectAndPlay();
+        shape.setBounds(e.getPoint());
+        editor.addToDrawing(shape);
+    }
 }
