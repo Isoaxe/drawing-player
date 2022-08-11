@@ -28,7 +28,8 @@ public class RectangleTool extends ShapeTool {
     }
 
     // EFFECTS: Returns the string for the label.
-    private String getLabel() {
+    @Override
+    protected String getLabel() {
         return "Rectangle";
     }
 
