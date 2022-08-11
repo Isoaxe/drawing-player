@@ -1,6 +1,5 @@
 package model;
 
-
 import sound.MidiSynth;
 
 import java.awt.*;
@@ -37,17 +36,6 @@ public abstract class Shape {
         width = w;
         height = h;
     }
-
-    // Abstract methods.
-
-    // EFFECTS: return true if the given Point (x,y) is contained within the bounds of this Shape
-    public abstract boolean contains(Point p);
-
-    // EFFECTS: draws the shape
-    protected abstract void drawGraphics(Graphics g);
-
-    // EFFECTS: fills the shape
-    protected abstract void fillGraphics(Graphics g);
 
     // getters
     public int getWidth() { return width; }
@@ -146,4 +134,15 @@ public abstract class Shape {
     private int coordToNote(int y) {
         return 70 - y / 12;
     }
+
+    // abstract methods below, implementations in subclasses
+
+    // EFFECTS: return true if the given Point (x,y) is contained within the bounds of this Shape
+    public abstract boolean contains(Point p);
+
+    // EFFECTS: draws the shape
+    protected abstract void drawGraphics(Graphics g);
+
+    // EFFECTS: fills the shape
+    protected abstract void fillGraphics(Graphics g);
 }
