@@ -16,6 +16,11 @@ public abstract class ShapeTool extends Tool {
 		shape = null;
 	}
 
+    // abstract methods, implementations in subclasses
+    public abstract void mousePressedInDrawingArea(MouseEvent e);
+    protected abstract String getLabel();
+    protected abstract void createButton(JComponent parent);
+
     // MODIFIES: this
     // EFFECTS:  associate button with new ClickHandler
 	@Override
