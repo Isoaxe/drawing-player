@@ -32,17 +32,6 @@ public class ShapeTool extends Tool {
 	}
 
 	// MODIFIES: this
-    // EFFECTS:  a shape is instantiate MouseEvent occurs, and played and
-    //           added to the editor's drawing
-	@Override
-	public void mousePressedInDrawingArea(MouseEvent e) {
-		makeShape(e);
-		shape.selectAndPlay();
-		shape.setBounds(e.getPoint());
-		editor.addToDrawing(shape);
-	}
-
-	// MODIFIES: this
     // EFFECTS:  unselects this shape, and sets it to null
 	@Override
 	public void mouseReleasedInDrawingArea(MouseEvent e) {
