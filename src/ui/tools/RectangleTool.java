@@ -12,7 +12,7 @@ public class RectangleTool extends ShapeTool {
     }
 
     // EFFECTS: Constructs and returns the new rectangle
-    private void makeShape(MouseEvent e) {
+    private void makeRectangle(MouseEvent e) {
         shape = new Rectangle(e.getPoint(), editor.getMidiSynth());
     }
 
@@ -21,7 +21,7 @@ public class RectangleTool extends ShapeTool {
     //           added to the editor's drawing
     @Override
     public void mousePressedInDrawingArea(MouseEvent e) {
-        makeShape(e);
+        makeRectangle(e);
         shape.selectAndPlay();
         shape.setBounds(e.getPoint());
         editor.addToDrawing(shape);
