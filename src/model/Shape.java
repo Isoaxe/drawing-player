@@ -6,30 +6,30 @@ import sound.MidiSynth;
 import java.awt.*;
 
 
-public class Shape {
-    private static Color PLAYING_COLOR;
+public abstract class Shape {
+    protected static Color PLAYING_COLOR;
 
-    private int x;
-    private int y;
-    private int width;
-    private int height;
+    protected int x;
+    protected int y;
+    protected int width;
+    protected int height;
 
     private boolean selected;
 
     private MidiSynth midiSynth;
-    private int instrument;
+    protected int instrument;
     private int playLineCoord;
 
 
     public Shape(Point topLeft, MidiSynth midiSynth) {
-        this((int) topLeft.getX(), (int) topLeft.getY(), 0, 0); //note to students: calls the other constructor!
+        this((int) topLeft.getX(), (int) topLeft.getY(), 0, 0); // calls the other constructor
         selected = false;
         this.midiSynth = midiSynth;
-        instrument = 0;
         playLineCoord = 0;
+        // Default values below. These are usually reassigned in subclasses.
+        instrument = 0; // piano
         PLAYING_COLOR = new Color(230, 158, 60);
     }
-
 
     public Shape(int x, int y, int w, int h) {
         this.x = x;
@@ -37,6 +37,17 @@ public class Shape {
         width = w;
         height = h;
     }
+
+    // Abstract methods.
+
+    // EFFECTS: return true if the given Point (x,y) is contained within the bounds of this Shape
+    public abstract boolean contains(Point p);
+
+    // EFFECTS: draws the shape
+    protected abstract void drawGraphics(Graphics g);
+
+    // EFFECTS: fills the shape
+    protected abstract void fillGraphics(Graphics g);
 
     // getters
     public int getWidth() { return width; }
@@ -46,22 +57,9 @@ public class Shape {
         this.playLineCoord = playLineCoord;
     }
 
-    // EFFECTS: return true iff the given x value is within the bounds of the Shape
+    // EFFECTS: return true if the given x value is within the bounds of the Shape
     public boolean containsX(int x){
         return (this.x <= x) && (x <= this.x + width);
-    }
-
-    // EFFECTS: return true iff the given y value is within the bounds of the Shape
-    public boolean containsY(int y) {
-        return (this.y <= y) && (y <= this.y + height);
-    }
-
-    // EFFECTS: return true if the given Point (x,y) is contained within the bounds of this Shape
-    public boolean contains(Point point) {
-        int point_x = point.x;
-        int point_y = point.y;
-
-        return containsX(point_x) && containsY(point_y);
     }
 
     // REQUIRES: the x,y coordinates of the Point are larger than the x,y coordinates of the shape
@@ -91,8 +89,6 @@ public class Shape {
             g.setColor(save);
         }
     }
-
-
 
     // MODIFIES: this
     // EFFECTS:  adds dx to the shapes x coordinate, and dy to the shapes y coordinate.
@@ -127,17 +123,6 @@ public class Shape {
             stopPlaying();
         }
     }
-
-    //EFFECTS: draws the shape
-    private void drawGraphics(Graphics g) {
-        g.drawRect(x, y, width, height);
-    }
-
-    //EFFECTS: fills the shape
-    private void fillGraphics(Graphics g) {
-        g.fillRect(x, y, width, height);
-    }
-
 
     // EFFECTS: starts playing this Shape, where sound is dependent on the area/coordinates of the Shape
     private void play(){
