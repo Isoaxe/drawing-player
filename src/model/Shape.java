@@ -22,11 +22,12 @@ public abstract class Shape {
 
 
     public Shape(Point topLeft, MidiSynth midiSynth) {
-        this((int) topLeft.getX(), (int) topLeft.getY(), 0, 0); //note to students: calls the other constructor!
+        this((int) topLeft.getX(), (int) topLeft.getY(), 0, 0); // calls the other constructor
         selected = false;
         this.midiSynth = midiSynth;
-        instrument = 0;
         playLineCoord = 0;
+        // Default values below. These are usually reassigned in subclasses.
+        instrument = 0; // piano
         PLAYING_COLOR = new Color(230, 158, 60);
     }
 
