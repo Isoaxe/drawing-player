@@ -46,11 +46,6 @@ public class ShapeTool extends Tool {
 		shape.setBounds(e.getPoint());
 	}
 
-	//EFFECTS: Returns the string for the label.
-	private String getLabel() {
-		return "Shape";
-	}
-
 	private class ShapeToolClickHandler implements ActionListener {
 		// EFFECTS: sets active tool to the shape tool
 		//          called by the framework when the tool is clicked
