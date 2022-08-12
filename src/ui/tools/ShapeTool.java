@@ -1,6 +1,7 @@
 package ui.tools;
 
 import model.Oval;
+import model.Rectangle;
 import model.Shape;
 import ui.DrawingEditor;
 
@@ -52,7 +53,13 @@ public class ShapeTool extends Tool {
 
     // EFFECTS: Constructs and returns the new shape
     private void makeShape(MouseEvent e) {
-        shape = new Oval(e.getPoint(), editor.getMidiSynth());
+        if (label == "Rectangle") {
+            shape = new Rectangle(e.getPoint(), editor.getMidiSynth());
+        } else if (label == "Oval") {
+            shape = new Oval(e.getPoint(), editor.getMidiSynth());
+        } else {
+            shape = null;
+        }
     }
 
     // MODIFIES: this
@@ -68,6 +75,7 @@ public class ShapeTool extends Tool {
     // MODIFIES: this
     // EFFECTS:  creates new button and adds to parent
     protected void createButton(JComponent parent) {
+        System.out.println(label);
         button = new JButton(label);
         button = customizeButton(button);
     }
