@@ -14,8 +14,8 @@ public class MoveTool extends Tool {
 	private Shape shapeToMove;
 	private Point start;
 
-    public MoveTool(DrawingEditor editor, JComponent parent) {
-		super(editor, parent);
+    public MoveTool(DrawingEditor editor, JComponent parent, String label) {
+		super(editor, parent, label);
 		shapeToMove = null;
 		start = null;
 	}
@@ -24,8 +24,8 @@ public class MoveTool extends Tool {
     // EFFECTS:  constructs a move button which is then added to the JComponent (parent)
     //           which is passed in as a parameter
 	@Override
-	protected void createButton(JComponent parent) {
-		button = new JButton("Move");
+	protected void createButton(JComponent parent, String label) {
+		button = new JButton(label);
 		addToParent(parent);
 	}
 

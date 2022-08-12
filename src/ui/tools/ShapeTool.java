@@ -1,5 +1,7 @@
 package ui.tools;
 
+import model.Oval;
+import model.Rectangle;
 import model.Shape;
 import ui.DrawingEditor;
 
@@ -8,11 +10,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 
-public abstract class ShapeTool extends Tool {
+public class ShapeTool extends Tool {
 	protected Shape shape;
 
-    public ShapeTool(DrawingEditor editor, JComponent parent) {
-		super(editor, parent);
+    public ShapeTool(DrawingEditor editor, JComponent parent, String label) {
+		super(editor, parent, label);
 		shape = null;
 	}
 
@@ -47,16 +49,32 @@ public abstract class ShapeTool extends Tool {
 		}
 	}
 
-    // abstract methods below, implementations in subclasses
+    // EFFECTS: Constructs and returns the new shape
+    private void makeShape(MouseEvent e) {
+        if (label == "Rectangle") {
+            shape = new Rectangle(e.getPoint(), editor.getMidiSynth());
+        } else if (label == "Oval") {
+            shape = new Oval(e.getPoint(), editor.getMidiSynth());
+        } else {
+            shape = null;
+        }
+    }
 
-    // EFFECTS: when MouseEvent occurs a shape is instantiated, is played, and
-    //          added to the editor's drawing
-    public abstract void mousePressedInDrawingArea(MouseEvent e);
+    // MODIFIES: this
+    // EFFECTS:  when MouseEvent occurs a shape is instantiated, is played, and
+    //           added to the editor's drawing
+    public void mousePressedInDrawingArea(MouseEvent e) {
+        makeShape(e);
+        shape.selectAndPlay();
+        shape.setBounds(e.getPoint());
+        editor.addToDrawing(shape);
+    }
 
-    // EFFECTS: Returns the string for the label.
-    protected abstract String getLabel();
-
-    // EFFECTS: creates new button and adds to parent
-    protected abstract void createButton(JComponent parent);
+    // MODIFIES: this
+    // EFFECTS:  creates new button and adds to parent
+    protected void createButton(JComponent parent, String label) {
+        button = new JButton(label);
+        button = customizeButton(button);
+    }
 }
 

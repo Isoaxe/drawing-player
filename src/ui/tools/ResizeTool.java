@@ -13,16 +13,16 @@ public class ResizeTool extends Tool {
 	private Shape shapeToResize;
 
     // EFFECTS: creates a new ResizeTool with the given editor and parent. Sets shapeToResize to null
-	public ResizeTool(DrawingEditor editor, JComponent parent) {
-		super(editor, parent);
+	public ResizeTool(DrawingEditor editor, JComponent parent, String label) {
+		super(editor, parent, label);
 		shapeToResize = null;
 	}
 
     // MODIFIES: this
     // EFFECTS: creates new button and adds to parent
 	@Override
-	protected void createButton(JComponent parent) {
-		button = new JButton("Resize");
+	protected void createButton(JComponent parent, String label) {
+		button = new JButton(label);
 		addToParent(parent);
 	}
 

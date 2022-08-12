@@ -11,12 +11,14 @@ public abstract class Tool {
 
 	protected JButton button;
 	protected DrawingEditor editor;
+    protected String label;
 	private boolean active;
 
 
-	public Tool(DrawingEditor editor, JComponent parent) {
+	public Tool(DrawingEditor editor, JComponent parent, String label) {
 		this.editor = editor;
-		createButton(parent);
+        this.label = label;
+		createButton(parent, label);
 		addToParent(parent);
 		active = false;
 		addListener();
@@ -45,7 +47,7 @@ public abstract class Tool {
 	}
 
     // EFFECTS: creates button to activate tool
-	protected abstract void createButton(JComponent parent);
+	protected abstract void createButton(JComponent parent, String label);
 
 	// EFFECTS: adds a listener for this tool
 	protected abstract void addListener();

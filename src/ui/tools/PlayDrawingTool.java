@@ -11,16 +11,16 @@ import java.awt.event.ActionListener;
 
 public class PlayDrawingTool extends Tool {
 
-	public PlayDrawingTool(DrawingEditor editor, JComponent parent) {
-		super(editor, parent);
+	public PlayDrawingTool(DrawingEditor editor, JComponent parent, String label) {
+		super(editor, parent, label);
 	}
 
     // MODIFIES: this
     // EFFECTS:  creates a new "Play The Whole Drawing" button and invokes addToParent() on the
     //           parent passed to this method
 	@Override
-	protected void createButton(JComponent parent) {
-		button = new JButton("Play The Whole Drawing");
+	protected void createButton(JComponent parent, String label) {
+		button = new JButton(label);
 		button = customizeButton(button);
 		addToParent(parent);
 	}
