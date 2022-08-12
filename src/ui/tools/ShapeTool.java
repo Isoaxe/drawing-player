@@ -11,10 +11,12 @@ import java.awt.event.MouseEvent;
 
 public abstract class ShapeTool extends Tool {
 	protected Shape shape;
+    private String label;
 
-    public ShapeTool(DrawingEditor editor, JComponent parent) {
+    public ShapeTool(DrawingEditor editor, JComponent parent, String label) {
 		super(editor, parent);
 		shape = null;
+        this.label = label;
 	}
 
     // MODIFIES: this
@@ -52,9 +54,6 @@ public abstract class ShapeTool extends Tool {
     private void makeShape(MouseEvent e) {
         shape = new Oval(e.getPoint(), editor.getMidiSynth());
     }
-
-    // EFFECTS: Returns the string for the label.
-    protected abstract String getLabel();
 
     // MODIFIES: this
     // EFFECTS:  when MouseEvent occurs a shape is instantiated, is played, and
