@@ -1,5 +1,6 @@
 package ui.tools;
 
+import model.Oval;
 import model.Shape;
 import ui.DrawingEditor;
 
@@ -47,16 +48,29 @@ public abstract class ShapeTool extends Tool {
 		}
 	}
 
-    // abstract methods below, implementations in subclasses
-
-    // EFFECTS: when MouseEvent occurs a shape is instantiated, is played, and
-    //          added to the editor's drawing
-    public abstract void mousePressedInDrawingArea(MouseEvent e);
+    // EFFECTS: Constructs and returns the new shape
+    private void makeShape(MouseEvent e) {
+        shape = new Oval(e.getPoint(), editor.getMidiSynth());
+    }
 
     // EFFECTS: Returns the string for the label.
     protected abstract String getLabel();
 
-    // EFFECTS: creates new button and adds to parent
-    protected abstract void createButton(JComponent parent);
+    // MODIFIES: this
+    // EFFECTS:  when MouseEvent occurs a shape is instantiated, is played, and
+    //           added to the editor's drawing
+    public void mousePressedInDrawingArea(MouseEvent e) {
+        makeShape(e);
+        shape.selectAndPlay();
+        shape.setBounds(e.getPoint());
+        editor.addToDrawing(shape);
+    }
+
+    // MODIFIES: this
+    // EFFECTS:  creates new button and adds to parent
+    protected void createButton(JComponent parent) {
+        button = new JButton("Shape");
+        button = customizeButton(button);
+    }
 }
 
