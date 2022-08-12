@@ -157,19 +157,19 @@ public class DrawingEditor extends JFrame {
         ShapeTool ovalTool = new ShapeTool(this, toolArea, "Oval");
         tools.add(ovalTool);
 
-        MoveTool moveTool = new MoveTool(this, toolArea);
+        MoveTool moveTool = new MoveTool(this, toolArea, "Move");
         tools.add(moveTool);
 
-        ResizeTool resizeTool = new ResizeTool(this, toolArea);
+        ResizeTool resizeTool = new ResizeTool(this, toolArea, "Resize");
         tools.add(resizeTool);
 
-        DeleteTool deleteTool = new DeleteTool(this, toolArea);
+        DeleteTool deleteTool = new DeleteTool(this, toolArea, "Delete");
         tools.add(deleteTool);
 
-        PlayShapeTool playShapeTool = new PlayShapeTool(this, toolArea);
+        PlayShapeTool playShapeTool = new PlayShapeTool(this, toolArea, "Play Shape");
 		tools.add(playShapeTool);
 
-        PlayDrawingTool playDrawingTool = new PlayDrawingTool(this, toolArea);
+        PlayDrawingTool playDrawingTool = new PlayDrawingTool(this, toolArea, "Play The Whole Drawing");
         tools.add(playDrawingTool);
 
         setActiveTool(rectTool);

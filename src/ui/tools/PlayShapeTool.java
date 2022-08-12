@@ -13,8 +13,8 @@ import java.awt.event.MouseEvent;
 
 public class PlayShapeTool extends Tool {
 
-	public PlayShapeTool(DrawingEditor editor, JComponent parent) {
-		super(editor, parent);
+	public PlayShapeTool(DrawingEditor editor, JComponent parent, String label) {
+		super(editor, parent, label);
 	}
 
     // EFFECTS: selects the figure containing point of mouse press
@@ -27,8 +27,8 @@ public class PlayShapeTool extends Tool {
     // EFFECTS:  creates a new "Play Shape" button and invokes addToParent() on the
     //           parent passed to this method
     @Override
-    protected void createButton(JComponent parent) {
-        button = new JButton("Play Shape");
+    protected void createButton(JComponent parent, String label) {
+        button = new JButton(label);
         button = customizeButton(button);
         addToParent(parent);
     }

@@ -12,12 +12,10 @@ import java.awt.event.MouseEvent;
 
 public class ShapeTool extends Tool {
 	protected Shape shape;
-    private String label;
 
     public ShapeTool(DrawingEditor editor, JComponent parent, String label) {
-		super(editor, parent);
+		super(editor, parent, label);
 		shape = null;
-        this.label = label;
 	}
 
     // MODIFIES: this
@@ -74,8 +72,7 @@ public class ShapeTool extends Tool {
 
     // MODIFIES: this
     // EFFECTS:  creates new button and adds to parent
-    protected void createButton(JComponent parent) {
-        System.out.println(label);
+    protected void createButton(JComponent parent, String label) {
         button = new JButton(label);
         button = customizeButton(button);
     }

@@ -12,8 +12,8 @@ public class DeleteTool extends Tool {
 
 	private Shape shapeToDelete;
 
-	public DeleteTool(DrawingEditor editor, JComponent parent) {
-		super(editor, parent);
+	public DeleteTool(DrawingEditor editor, JComponent parent, String label) {
+		super(editor, parent, label);
 		shapeToDelete = null;
 	}
 
@@ -21,8 +21,8 @@ public class DeleteTool extends Tool {
     // EFFECTS:  constructs a delete button which is then added to the JComponent (parent)
     //           which is passed in as a parameter
 	@Override
-	protected void createButton(JComponent parent) {
-		button = new JButton("Delete");
+	protected void createButton(JComponent parent, String label) {
+		button = new JButton(label);
 		addToParent(parent);
 	}
 
