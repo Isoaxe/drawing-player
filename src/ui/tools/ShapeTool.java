@@ -68,7 +68,7 @@ public class ShapeTool extends Tool {
     // MODIFIES: this
     // EFFECTS:  creates new button and adds to parent
     protected void createButton(JComponent parent) {
-        button = new JButton("Shape");
+        button = new JButton(label);
         button = customizeButton(button);
     }
 }
