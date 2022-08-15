@@ -8,7 +8,7 @@ public class Oval extends Shape {
     public Oval(Point topLeft, MidiSynth midiSynth) {
         super(topLeft, midiSynth);
         instrument = 57; // trumpets
-        PLAYING_COLOR = new Color(0, 128, 128);
+        playingColor = new Color(0, 128, 128);
     }
 
     // EFFECTS: return true if this Oval contains the given point p, else return false
