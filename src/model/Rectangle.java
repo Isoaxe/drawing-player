@@ -8,7 +8,7 @@ public class Rectangle extends Shape {
     public Rectangle(Point topLeft, MidiSynth midiSynth) {
         super(topLeft, midiSynth);
         instrument = 33; // bass
-        PLAYING_COLOR = new Color(20, 189, 79);
+        playingColor = new Color(20, 189, 79);
     }
 
     // EFFECTS: return true if the given y value is within the bounds of the Shape

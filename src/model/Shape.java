@@ -6,8 +6,7 @@ import java.awt.*;
 
 
 public abstract class Shape {
-    protected static Color PLAYING_COLOR;
-
+    protected Color playingColor;
     protected int x;
     protected int y;
     protected int width;
@@ -27,7 +26,7 @@ public abstract class Shape {
         playLineCoord = 0;
         // Default values below. These are usually reassigned in subclasses.
         instrument = 0; // piano
-        PLAYING_COLOR = new Color(230, 158, 60);
+        playingColor = new Color(230, 158, 60);
     }
 
     public Shape(int x, int y, int w, int h) {
@@ -63,7 +62,7 @@ public abstract class Shape {
     public void draw(Graphics g) {
         Color save = g.getColor();
         if (selected) {
-            g.setColor(PLAYING_COLOR);
+            g.setColor(playingColor);
         } else {
             g.setColor(Color.white);
         }
