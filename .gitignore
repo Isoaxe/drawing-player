@@ -1,5 +1,6 @@
 # This is a gitignore file
 
+/out
 *.class
 workspace.xml
 .DS_Store
